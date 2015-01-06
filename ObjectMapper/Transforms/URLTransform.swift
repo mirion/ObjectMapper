@@ -11,7 +11,7 @@ import UIKit
 public class URLTransform<ObjectType, JSONType>: MapperTransform<ObjectType, JSONType> {
     
     public override init(){
-        
+      super.init()
     }
     
     override public func transformFromJSON(value: AnyObject?) -> ObjectType? {

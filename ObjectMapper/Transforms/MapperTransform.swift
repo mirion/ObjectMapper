@@ -9,16 +9,23 @@
 import Foundation
 
 public class MapperTransform<ObjectType, JSONType> {
-    
+  
+    private let transformFromJSONFunc: ((value: AnyObject?) -> ObjectType?)?
+    private let transformToJSONFunc: ((value: ObjectType?) -> JSONType?)?
+
     public init(){
-    
     }
-    
+  
+    public init(transformFromJSON: (value: AnyObject?) -> ObjectType?, transformToJSON: (value: ObjectType?) -> JSONType?) {
+        self.transformFromJSONFunc = transformFromJSON
+        self.transformToJSONFunc = transformToJSON
+    }
+
     public func transformFromJSON(value: AnyObject?) -> ObjectType? {
-        return nil
+        return transformFromJSONFunc?( value: value )
     }
     
     public func transformToJSON(value: ObjectType?) -> JSONType? {
-        return nil
+        return transformToJSONFunc?( value: value )
     }
 }

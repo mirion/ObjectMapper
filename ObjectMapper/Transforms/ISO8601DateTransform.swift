@@ -10,6 +10,7 @@ import Foundation
 
 public class ISO8601DateTransform<ObjectType, JSONType>: MapperTransform<ObjectType, JSONType> {
     public override init() {
+        super.init()
     }
 
     func dateFormatter() -> NSDateFormatter {
